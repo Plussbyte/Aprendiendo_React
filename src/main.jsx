@@ -1,14 +1,14 @@
-const arreglo = ['Hola','como','estas']
+import { getHeroesByID } from "./bases/08-importacion-y-exportacion.basico";
 
-const [,,P3] = arreglo //--> de esta forma desestructuramos un arreglo 
+const promesa = new Promise((resolve,reject)=>{
 
-console.log(P3) //--> para llegar a una posicion del arreglo sin tener que asignar una variable se realisa por comas(,)
+    setTimeout(() => {
+        const heroe = getHeroesByID(2)
+        console.log(heroe)
+    }, 3000);
 
+})
 
-const functionArreglo = ()=>{
-    return ['ABC',123]
-}
-
-const [letras,numeros] = functionArreglo()
-
-console.log(letras,numeros)
+promesa.then(()=>{
+    console.log('then Promesa ejecutada correctamente despues de 3 segundos')
+})
